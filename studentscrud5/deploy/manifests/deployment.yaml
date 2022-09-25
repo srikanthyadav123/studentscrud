@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: studentscrud-application
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: studentscrud-application
+  template:
+    metadata:
+      labels:
+        run: studentscrud-application
+    spec:
+      containers:
+        - name: studentscrud-application
+          image: docker.io/srikanthyadav123/studentscrud-app:0.0.3
+          ports:
+            - containerPort: 80
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: 200m
+          securityContext:
+            allowPrivilegeEscalation: false
