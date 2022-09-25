@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: studentscrud-application
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       run: studentscrud-application
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: studentscrud-application
-          image: docker.io/srikanthyadav123/studentscrud-app:0.0.3
+          image: docker.io/dockerunbxd1/studentscrud:latest
           ports:
             - containerPort: 80
           imagePullPolicy: Always
